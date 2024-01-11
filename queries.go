@@ -34,7 +34,7 @@ type OtpTransactionParams struct {
 	PhoneNumberOtp    string         `json:"phone_number_otp"`
 }
 
-func (q *Queries) VtpTransaction(ctx context.Context, arg otpTransactionParams) error {
+func (q *Queries) OtpTransaction(ctx context.Context, arg otpTransactionParams) error {
 	_, err := q.db.ExecContext(ctx, otpTransaction, arg.Otp, arg.OtpExpirationTime, arg.PhoneNumberOtp)
 	return err
 }
